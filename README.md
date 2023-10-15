@@ -17,3 +17,5 @@
 # Скриншоты
 
 ![image](https://github.com/zmeyskiy/ExampleAuthCPP/assets/138138510/cc4be93f-51da-4438-af22-b67087f2e245)
+![image](https://github.com/zmeyskiy/ExampleAuthCPP/assets/138138510/ff882b4c-359b-4520-88dc-e38638041d83)
+
