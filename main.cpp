@@ -15,15 +15,15 @@ void validated()
 {
     int action;
 
-    cout << "\nÄàííûå: " << endl << endl;
+    cout << "\nÃ„Ã Ã­Ã­Ã»Ã¥: " << endl << endl;
 
-    cout << "Âàø þçåðíåéì: " << USERNAME << endl;
-    cout << "Âàø ïàðîëü: " << PASSWORD << endl;
-    cout << "Âàø HWID: " << HWID << endl;
+    cout << "Ã‚Ã Ã¸ Ã¾Ã§Ã¥Ã°Ã­Ã¥Ã©Ã¬: " << USERNAME << endl;
+    cout << "Ã‚Ã Ã¸ Ã¯Ã Ã°Ã®Ã«Ã¼: " << PASSWORD << endl;
+    cout << "Ã‚Ã Ã¸ HWID: " << HWID << endl;
 
-    cout << "\nÄåéñòâèÿ: " << endl << endl;
+    cout << "\nÃ„Ã¥Ã©Ã±Ã²Ã¢Ã¨Ã¿: " << endl << endl;
 
-    cout << "[1] Âûéòè ñ àêêàóíòà" << endl << endl;
+    cout << "[1] Ã‚Ã»Ã©Ã²Ã¨ Ã± Ã ÃªÃªÃ Ã³Ã­Ã²Ã " << endl << endl;
 
     cout << USERNAME << "@user: ";
     cin >> action;
@@ -44,16 +44,16 @@ int main()
     SetConsoleTitleW(L"ExampleAuth");
 	setlocale(LC_ALL, "Russian");
 
-	cout << "Ïîäêëþ÷åíèå ê áàçå äàííûõ...\n";
+	cout << "ÃÃ®Ã¤ÃªÃ«Ã¾Ã·Ã¥Ã­Ã¨Ã¥ Ãª Ã¡Ã Ã§Ã¥ Ã¤Ã Ã­Ã­Ã»Ãµ...\n";
 
     sqlite3* db;
     char* errMsg = 0;
     int rc;
 
-    rc = sqlite3_open("C:\\Users\\zmeyskiy\\Desktop\\logins.db", &db);
+    rc = sqlite3_open("logins.db", &db);
 
     if (rc) {
-        cout << "Îøèáêà: Íå óäàëîñü ïîäêëþ÷èòñÿ ê áàçå äàííûõ" << endl;
+        cout << "ÃŽÃ¸Ã¨Ã¡ÃªÃ : ÃÃ¥ Ã³Ã¤Ã Ã«Ã®Ã±Ã¼ Ã¯Ã®Ã¤ÃªÃ«Ã¾Ã·Ã¨Ã²Ã±Ã¿ Ãª Ã¡Ã Ã§Ã¥ Ã¤Ã Ã­Ã­Ã»Ãµ" << endl;
         sqlite3_close(db);
 
         Sleep(750);
@@ -66,7 +66,7 @@ int main()
 	Sleep(1000);
 
 	system("cls");
-	cout << "Ïðèâåò, òû â ïðèëîæåíèè ExampleAuth\nÇàðåãèñòðèðóéñÿ, ëèáî, ââîéäè â ñâîé àêêàóíò\n\n[1] Çàðåãèñòðèðîâàòñÿ\n[2] Ââîéòè\n\nunknown@user: ";
+	cout << "ÃÃ°Ã¨Ã¢Ã¥Ã², Ã²Ã» Ã¢ Ã¯Ã°Ã¨Ã«Ã®Ã¦Ã¥Ã­Ã¨Ã¨ ExampleAuth\nÃ‡Ã Ã°Ã¥Ã£Ã¨Ã±Ã²Ã°Ã¨Ã°Ã³Ã©Ã±Ã¿, Ã«Ã¨Ã¡Ã®, Ã¢Ã¢Ã®Ã©Ã¤Ã¨ Ã¢ Ã±Ã¢Ã®Ã© Ã ÃªÃªÃ Ã³Ã­Ã²\n\n[1] Ã‡Ã Ã°Ã¥Ã£Ã¨Ã±Ã²Ã°Ã¨Ã°Ã®Ã¢Ã Ã²Ã±Ã¿\n[2] Ã‚Ã¢Ã®Ã©Ã²Ã¨\n\nunknown@user: ";
 
 choose:
 
@@ -80,7 +80,7 @@ choose:
 
     enterName:
 
-        cout << "\nÂâåäèòå íèêíåéì: ";
+        cout << "\nÃ‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã¨ÃªÃ­Ã¥Ã©Ã¬: ";
         cin >> username;
 
         const char* query = "SELECT COUNT(*) FROM data WHERE username = ?;";
@@ -94,13 +94,13 @@ choose:
             {
                 int count = sqlite3_column_int(stmt, 0);
                 if (count > 0) {
-                    cout << "Îøèáêà: Òàêîé þçåðíåéì óæå ñóùåñòâóåò" << endl;
+                    cout << "ÃŽÃ¸Ã¨Ã¡ÃªÃ : Ã’Ã ÃªÃ®Ã© Ã¾Ã§Ã¥Ã°Ã­Ã¥Ã©Ã¬ Ã³Ã¦Ã¥ Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¥Ã²" << endl;
                     goto enterName;
                 }
             }
             else 
             {
-                cout << "Îøèáêà: Íå óäàëîñü ïðîâåðèòü ñóùåñòâîâàíèå þçåðíåéìà" << endl;
+                cout << "ÃŽÃ¸Ã¨Ã¡ÃªÃ : ÃÃ¥ Ã³Ã¤Ã Ã«Ã®Ã±Ã¼ Ã¯Ã°Ã®Ã¢Ã¥Ã°Ã¨Ã²Ã¼ Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã¾Ã§Ã¥Ã°Ã­Ã¥Ã©Ã¬Ã " << endl;
                 goto choose;
             }
 
@@ -108,10 +108,10 @@ choose:
         }
         else 
         {
-            cout << "Îøèáêà: Íå óäàëîñü ïîäãîòîâèòü çàïðîñ" << endl;
+            cout << "ÃŽÃ¸Ã¨Ã¡ÃªÃ : ÃÃ¥ Ã³Ã¤Ã Ã«Ã®Ã±Ã¼ Ã¯Ã®Ã¤Ã£Ã®Ã²Ã®Ã¢Ã¨Ã²Ã¼ Ã§Ã Ã¯Ã°Ã®Ã±" << endl;
         }
 
-        cout << "Ââåäèòå ïàðîëü: ";
+        cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¯Ã Ã°Ã®Ã«Ã¼: ";
         cin >> password;
 
         string passwordEncrypted = encrypt(password, "ajhciASYdfhaifyIAxhjfciaUYHCiASUFJIhujfoihaLIFYHocAFLDIYwidqefUHAESIFHGkhjfiAjflolFHJOajfsohFIashjfihFIKL");
@@ -121,7 +121,7 @@ choose:
 
         if (rc != SQLITE_OK) 
         {
-            cerr << "Îøèáêà: Íå óäàëîñü çàðåãèñòðèðîâàòü àêêàóíò" << endl;
+            cerr << "ÃŽÃ¸Ã¨Ã¡ÃªÃ : ÃÃ¥ Ã³Ã¤Ã Ã«Ã®Ã±Ã¼ Ã§Ã Ã°Ã¥Ã£Ã¨Ã±Ã²Ã°Ã¨Ã°Ã®Ã¢Ã Ã²Ã¼ Ã ÃªÃªÃ Ã³Ã­Ã²" << endl;
         }
         else 
         {
@@ -140,10 +140,10 @@ choose:
         string passwordNotToCheck;
         string hwidToCheck = getHWID();
 
-        cout << "Ââåäèòå âàø íèêíåéì: ";
+        cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¢Ã Ã¸ Ã­Ã¨ÃªÃ­Ã¥Ã©Ã¬: ";
         cin >> usernameToCheck;
 
-        cout << "Ââåäèòå âàø ïàðîëü: ";
+        cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¢Ã Ã¸ Ã¯Ã Ã°Ã®Ã«Ã¼: ";
         cin >> passwordNotToCheck;
 
         string passwordToCheck = encrypt(passwordNotToCheck, "ajhciASYdfhaifyIAxhjfciaUYHCiASUFJIhujfoihaLIFYHocAFLDIYwidqefUHAESIFHGkhjfiAjflolFHJOajfsohFIashjfihFIKL");
@@ -153,7 +153,7 @@ choose:
 
         if (rc != SQLITE_OK) 
         {
-            cout << "Îøèáêà: Íå óäàëîñü ïîäãîòîâèòü çàïðîñ" << endl;
+            cout << "ÃŽÃ¸Ã¨Ã¡ÃªÃ : ÃÃ¥ Ã³Ã¤Ã Ã«Ã®Ã±Ã¼ Ã¯Ã®Ã¤Ã£Ã®Ã²Ã®Ã¢Ã¨Ã²Ã¼ Ã§Ã Ã¯Ã°Ã®Ã±" << endl;
             return(0);
         }
 
@@ -180,7 +180,7 @@ choose:
         }
         else
         {
-            cout << "Îøèáêà: Íå óäàëîñü âîéòè. \nÂîçìîæíûå ïðè÷èíû: íåïðàâèëüíûé þçåðíåéì/ïàðîëü, âàø HWID íå ñîâïàäàåò ñ òåì, ÷òî â áàçå äàííûõ" << endl;
+            cout << "ÃŽÃ¸Ã¨Ã¡ÃªÃ : ÃÃ¥ Ã³Ã¤Ã Ã«Ã®Ã±Ã¼ Ã¢Ã®Ã©Ã²Ã¨. \nÃ‚Ã®Ã§Ã¬Ã®Ã¦Ã­Ã»Ã¥ Ã¯Ã°Ã¨Ã·Ã¨Ã­Ã»: Ã­Ã¥Ã¯Ã°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã»Ã© Ã¾Ã§Ã¥Ã°Ã­Ã¥Ã©Ã¬/Ã¯Ã Ã°Ã®Ã«Ã¼, Ã¢Ã Ã¸ HWID Ã­Ã¥ Ã±Ã®Ã¢Ã¯Ã Ã¤Ã Ã¥Ã² Ã± Ã²Ã¥Ã¬, Ã·Ã²Ã® Ã¢ Ã¡Ã Ã§Ã¥ Ã¤Ã Ã­Ã­Ã»Ãµ" << endl;
         }
     }
 }
